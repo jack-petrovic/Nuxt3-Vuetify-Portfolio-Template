@@ -72,7 +72,6 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-// Function to get the label of an option based on its value
 const getOptionLabel = (val) => {
   if (!val) return '';
   const foundOption = props.options.flatMap((group) => group.options).find((option) => option.value === val);
@@ -81,7 +80,7 @@ const getOptionLabel = (val) => {
 
 const opened = ref(false);
 const focused = ref(false);
-const search = ref(getOptionLabel(props.modelValue)); // Initialize with selected value's label
+const search = ref(getOptionLabel(props.modelValue));
 
 const value = computed({
   get: () => props.modelValue,
@@ -90,7 +89,6 @@ const value = computed({
   },
 });
 
-// Function to filter options within a group based on search input
 const filteredOptions = (options) => {
   return options.filter((option) => option.label.toLowerCase().includes(search.value.toLowerCase()));
 };
@@ -98,41 +96,38 @@ const filteredOptions = (options) => {
 const toggleDropdown = () => {
   opened.value = !opened.value;
   if (!opened.value) {
-    search.value = getOptionLabel(value.value); // Reset search to selected item's label when closing
+    search.value = getOptionLabel(value.value);
   }
 };
 
 const handleSelect = (option) => {
-  value.value = option.value; // Set model value to selected option's value
-  search.value = option.label; // Update input field with selected option's label
-  opened.value = false; // Close dropdown
+  value.value = option.value;
+  search.value = option.label;
+  opened.value = false;
 };
 
-// Watch for changes in model value to update search input accordingly
 watch(value, (newVal) => {
-  search.value = getOptionLabel(newVal); // Update search input when model value changes
+  search.value = getOptionLabel(newVal);
 });
 
-// Handle clicks outside of the dropdown to close it
 const clickOutside = (event) => {
   if (!containerRef.value) return;
   if (!containerRef.contains(event.target)) {
-    toggleDropdown(); // Close dropdown if clicked outside
+    opened.value = false;
   }
 };
 
-// Watch for focus changes to reset search when focus is lost
 watch(focused, (newValue) => {
   if (!newValue && !opened.value) {
-    search.value = getOptionLabel(value.value); // Reset search when focus is lost
+    search.value = getOptionLabel(value.value);
   }
 });
 
 watch(opened, (newValue) => {
   if (newValue) {
-    document.addEventListener('click', clickOutside); // Add click event listener when dropdown opens
+    document.addEventListener('click', clickOutside);
   } else {
-    document.removeEventListener('click', clickOutside); // Remove listener when dropdown closes
+    document.removeEventListener('click', clickOutside);
   }
 });
 </script>
