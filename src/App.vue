@@ -1,8 +1,20 @@
-<script setup>
+<template>
+  <main>
+    <div class="account-selector">
+      <h2 class="account-title">Select account</h2>
+      <p class="hint-title">Use the dropdown to select where you want to login.</p>
+      <Dropdown :options="new_options" v-model="selectedValue" placeholder="Select an account" />
+      <button class="button button-black">Open dashboard</button>
+      <button class="button button-white">Connect account</button>
+      <a href="#" class="link-platform">Select another platform</a>
+    </div>
+  </main>
+</template>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 import Dropdown from './components/Dropdown.vue';
 
-const value = ref('');
 const new_options = [
   {
     label: 'Select',
@@ -29,24 +41,11 @@ const new_options = [
       { label: 'Prod 2', value: 'prod_2' },
     ],
   },
-]
+];
 
-const selectedValue = ref('');
+const selectedValue = ref(''); // To hold the selected option's value
 
 </script>
-
-<template>
-  <main>
-    <div class="account-selector">
-      <h2 class="account-title">Select account</h2>
-      <p class="hint-title">Use the dropdown to select where you want to login.</p>
-      <Dropdown :options="new_options" v-model="selectedValue" placeholder="Select an accont" />
-      <button class="button button-black">Open dashboard</button>
-      <button class="button button-white">Connect account</button>
-      <a href="#" class="link-platform">Select another platform</a>
-    </div>
-  </main>
-</template>
 
 <style scoped>
 header {
