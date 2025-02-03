@@ -3,49 +3,47 @@
 Welcome to the **Nuxt 3 Vuetify Portfolio Template**! This template is designed to help you create stunning, customer-centric portfolio websites using **Vue 3** and **Vuetify**.
 
 ## 🚀 Setup
-
-Make sure to install the dependencies:
+Make sure to install the dependencies: <br/>
+```bash
+yarn install
+```
 
 ```bash
-# Using Yarn
-yarn install
-
-# Using npm
 npm install
+```
 
-# Using pnpm
-pnpm install
-🌍 Development Server
+### 🌍 Development Server
 Start the development server on http://localhost:3000:
-
-Copy
+```bash
 npm run dev
-📦 Production
+```
+
+### 📦 Production
 Build the application for production:
-
-Copy
+```bash
 npm run build
+```
 Locally preview the production build:
-
-Copy
+```bash
 npm run preview
-📚 Documentation
+```
+## 📚 Documentation
 Check out the Nuxt 3 documentation for more information on how to use Nuxt 3 effectively.
 
-📈 Deployment
+### 📈 Deployment
 For deployment options, refer to the deployment documentation.
 
-💡 Features
-Vue 3: Harness the power of the latest Vue.js features.
-Vuetify: Utilize a rich set of UI components for a beautiful design.
-Customer-Centric: Tailored for businesses focusing on customer engagement and satisfaction.
+### 💡 Features
+Vue 3: Harness the power of the latest Vue.js features.<br/>
+Vuetify: Utilize a rich set of UI components for a beautiful design.<br/>
+Customer-Centric: Tailored for businesses focusing on customer engagement and satisfaction.<br/>
 Responsive Design: Ensure your portfolio looks great on all devices.
-🎨 Customization
+
+## 🎨 Customization
 Feel free to customize this template to meet your specific needs. Add your projects, adjust the styles, and make it your own!
 
 Happy coding! 🎉
 
-Copy
 
 ### Changes Made
 
